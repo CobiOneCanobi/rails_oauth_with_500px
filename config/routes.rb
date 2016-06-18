@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'photos#index'
 
-  resources :photos, only: [:index]
+  resources :photos, only: [:index, :show]
   resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

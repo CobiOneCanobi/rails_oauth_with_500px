@@ -3,5 +3,9 @@
 - else
   = link_to "Sign in", new_session_path
 %br
+
 - @photos.each do |photo|
   = image_tag photo['image_url']
+
+  - if photo['voted'] == false
+    = link_to 'Vote', photo_path(photo['id'])
