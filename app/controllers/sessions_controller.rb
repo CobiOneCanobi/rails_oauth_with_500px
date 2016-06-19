@@ -10,11 +10,11 @@ class SessionsController < ApplicationController
   def create
     FivehundredpxApi.generate_access_token(params[:username], params[:password] )
     access_token = FivehundredpxApi.get_access_token
-
-    if access_token
+    binding.pry
+    unless access_token == {}
       redirect_to photos_path
     else
-      flash.now[:error] = 'Invalid username/password combination'
+      flash.now[:alert] = 'Invalid username/password combination'
       render 'new'
     end
   end

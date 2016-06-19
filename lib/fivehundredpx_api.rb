@@ -14,7 +14,14 @@ class FivehundredpxApi
     :authorize_path     => "/v1/oauth/authorize"})
 
     request_token = consumer.get_request_token()
-    @@access_token = consumer.get_access_token(request_token, {}, { :x_auth_mode => 'client_auth', :x_auth_username => username, :x_auth_password => password })
+
+    begin
+      @@access_token = consumer.get_access_token(request_token, {}, { :x_auth_mode => 'client_auth', :x_auth_username => username, :x_auth_password => password })
+    rescue
+      return
+    end
+
+    @@access_token
   end
 
   def self.set_access_token(value)
@@ -35,6 +42,10 @@ class FivehundredpxApi
     HTTParty.get("#{@base_uri}/v1/photos?feature=popular&sort=times_viewed&rpp=100&image_size=3", @options).body
   end
 
+  def self.check_api_status
+    HTTParty.get(@base_uri).code
+  end
+
   def self.vote(photo_id)
     response = @@access_token.post("#{@base_uri}/v1/photos/#{photo_id}/vote?vote=1")
     hashed_response = response.to_hash
@@ -45,4 +56,5 @@ class FivehundredpxApi
       return false
     end
   end
+
 end
