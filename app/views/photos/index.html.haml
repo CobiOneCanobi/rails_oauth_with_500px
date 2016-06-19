@@ -1,2 +1,5 @@
-- @photos.each do |photo|
-  = image_tag photo['image_url']
+%h1 Popular Photos on 500px
+%div.section.group
+  - @photos.each do |photo|
+    %div.col.span_screen
+      = image_tag photo['image_url']
