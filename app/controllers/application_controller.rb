@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  require 'xoauth2'
+  require 'fivehundredpx_api'
 
   def signed_in?
-    if Xoauth2.get_access_token != {}
+    if FivehundredpxApi.get_access_token != {}
       true
     end
   end

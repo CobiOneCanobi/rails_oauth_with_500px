@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  require 'xoauth2'
+  require 'fivehundredpx_api'
 
   def new
     if signed_in? == true
@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    Xoauth2.generate_access_token(params[:username], params[:password] )
-    access_token = Xoauth2.get_access_token
+    FivehundredpxApi.generate_access_token(params[:username], params[:password] )
+    access_token = FivehundredpxApi.get_access_token
 
     if access_token
       redirect_to photos_path
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    Xoauth2.set_access_token({})
+    FivehundredpxApi.set_access_token({})
     redirect_to photos_path
   end
 
