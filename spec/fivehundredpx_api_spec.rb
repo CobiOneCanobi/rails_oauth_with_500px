@@ -66,7 +66,6 @@ describe FivehundredpxApi do
       get_photos = JSON.parse(response)
       expect(get_photos['photos'].size).to eq(100)
     end
-
   end
 
 end

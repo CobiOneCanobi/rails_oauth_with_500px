@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
   def create
     FivehundredpxApi.generate_access_token(params[:username], params[:password] )
     access_token = FivehundredpxApi.get_access_token
-    binding.pry
     unless access_token == {}
       redirect_to photos_path
     else
