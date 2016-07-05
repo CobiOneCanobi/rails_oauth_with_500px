@@ -36,10 +36,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'oauth'
 
 # Simple Rails app configuration
-gem "figaro"
+gem 'figaro'
 
 # Used in almost all views
 gem 'haml-rails', '~> 0.9'
+
+#To help with HTTP requests
+gem 'httparty'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

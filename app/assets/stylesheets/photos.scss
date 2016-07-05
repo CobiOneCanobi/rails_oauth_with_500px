@@ -1,0 +1,68 @@
+// Place all the styles related to the photos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*  SECTIONS  */
+.section {
+  clear: both;
+}
+
+/*  COLUMN SETUP  */
+.col {
+  display: block;
+  float:left;
+  margin: 1% 2% 1% 1%;
+}
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+
+
+@media screen and (max-width: 480px) {
+  .section {
+    text-align: center;
+    margin: 0;
+    width: auto;
+  }
+
+  .col {  margin: 1% 0 1% 0%; }
+
+  .span_screen { width: 100%; }
+}
+
+@media screen and (min-width: 600px) {
+
+  .section{
+    text-align: center;
+    margin: 0;
+    width: auto;
+  }
+
+  .col {  margin: 1% 0 1% 0%; }
+
+  .span_screen { width: 48%; }
+}
+
+@media screen and (min-width: 800px) {
+  .section{ text-align: center; margin: 0; width: auto;}
+
+  .col {  margin: 1% 0 1% 0%; }
+
+  .span_screen {
+    width: 33%;
+  }
+
+}
+
+@media screen and (min-width: 1281px) {
+  .section {
+    margin: auto;
+    width: 80%;
+  }
+
+  .span_screen {
+    width: 25%;
+  }
+}

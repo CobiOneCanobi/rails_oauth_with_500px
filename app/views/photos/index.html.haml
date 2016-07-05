@@ -1,0 +1,15 @@
+%h1 Popular Photos on 500px
+
+- if @signed_in
+  = link_to "Sign out", session_path(1), method: :delete
+- else
+  = link_to "Sign in", new_session_path
+%br
+
+%div.section.group
+  - @photos.each do |photo|
+    %div.col.span_screen
+      = image_tag photo['image_url']
+      - if photo['voted'] == false
+        = link_to 'Vote', photo_path(photo['id'])
+
